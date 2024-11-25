@@ -1,0 +1,95 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Person {
+protected:
+    string name;
+    int age;
+public:
+    virtual void Input() {
+        cout << "Введите имя: ";
+        cin >> name;
+        cout << "Введите возраст: ";
+        cin >> age;
+    }
+
+    virtual void Output() const {
+        cout << "Имя: " << name << ", Возраст: " << age << endl;
+    }
+
+    virtual ~Person() {}
+};
+
+class Student : public Person {
+private:
+    string academy;
+public:
+    void Input() override {
+        Person::Input();
+        cout << "Введите академию: ";
+        cin >> academy;
+    }
+
+    void Output() const override {
+        Person::Output();
+        cout << "Академия: " << academy << endl;
+    }
+};
+
+class Teacher : public Person {
+private:
+    string school;
+    string subject;
+public:
+    void Input() override {
+        Person::Input();
+        cout << "Введите школу: ";
+        cin >> school;
+        cout << "Введите предмет: ";
+        cin >> subject;
+    }
+
+    void Output() const override {
+        Person::Output();
+        cout << "Школа: " << school << ", Предмет: " << subject << endl;
+    }
+};
+
+class Director : public Person {
+private:
+    string school;
+    double salary;
+public:
+    void Input() override {
+        Person::Input();
+        cout << "Введите школу: ";
+        cin >> school;
+        cout << "Введите зарплату: ";
+        cin >> salary;
+    }
+
+    void Output() const override {
+        Person::Output();
+        cout << "Школа: " << school << ", Зарплата: " << salary << endl;
+    }
+};
+
+class Doctor : public Person {
+private:
+    string hospital;
+    double salary;
+public:
+    void Input() override {
+        Person::Input();
+        cout << "Введите больницу: ";
+        cin >> hospital;
+        cout << "Введите зарплату: ";
+        cin >> salary;
+    }
+
+    void Output() const override {
+        Person::Output();
+        cout << "Больница: " << hospital << ", Зарплата: " << salary << endl;
+    }
+};
